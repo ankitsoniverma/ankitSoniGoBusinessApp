@@ -1,4 +1,44 @@
 .home-container{
-    background-color: lightyellow;
+    background-color: #F4F6FB;
     height: 100vh;
+    padding: 1px;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+.home-heading{
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+.home-description{
+      color: #5A7184;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.Overview-container{
+    background-color: white;
+    padding: 20px;
+    height: 340px;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+.overview-list{
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.Services-container{
+    background-color: white;
+    padding: 20px;
+    height: 170pxpx;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
 }

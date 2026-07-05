@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import './index.css';
 import Cookies from 'js-cookie';
-import {withRouter} from 'react-router-dom'
+import {withRouter,Redirect} from 'react-router-dom'
 class Login extends Component {
     state = {
         Email: "",
@@ -77,6 +77,10 @@ class Login extends Component {
         const {Email,password } = this.state
         
         console.log(Email,password)
+        const jwtToken = Cookies.get('jwt_token')
+        if (jwtToken !== undefined) {
+            return <Redirect to="/" />
+        }
         return(
             <div className="login-main-container">
                 
