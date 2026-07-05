@@ -1,0 +1,19 @@
+.footer{
+    padding-left: 6%;
+    padding-right: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+.header-heading{
+    text-decoration: none;
+    color: #355aed;
+}
+.footer-links{
+    list-style-type: none;
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}

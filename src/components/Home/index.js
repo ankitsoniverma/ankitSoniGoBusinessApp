@@ -6,49 +6,66 @@ import Service from '../Service'
 import ReferAndEarn from '../ReferAndEarn';
 import Header from '../Header';
 import {Redirect} from 'react-router-dom'
+import Footer from '../Footer';
+import AllRefrelITems from '../AllRefrelITems'
 class Home extends Component {
     state ={
         overviewData: [],
         serviceData : {},
-        referData : {}
+        referData : {},
+        referrals : [],
+        search: ""
+
     }
     componentDidMount() {
-        const jwtToken = Cookies.get('jwt_token')
-        if (jwtToken !== undefined) {
-            this.getDetails()
-        }
+        this.getDetails()
     }
     getDetails = async () => {
+        const {search} = this.state
         const jwtToken = Cookies.get('jwt_token')
-        if (jwtToken === undefined) {
-            return
-        }
-        const apiUrl = "https://v9fes04dwf.execute-api.eu-north-1.amazonaws.com/api/referrals"
+        const apiUrl = `https://v9fes04dwf.execute-api.eu-north-1.amazonaws.com/api/referrals?search=${search}`
         const options = {
             headers: {
                 Authorization: `Bearer ${jwtToken}`,
             },
             method: 'GET',
         }
-        try {
-            const response = await fetch(apiUrl, options)
-            const data = await response.json()
-            if (!response.ok) {
-                throw new Error(data.message || 'Failed to load referral data')
-            }
-            this.setState({
-                overviewData: data?.data?.metrics || [],
-                serviceData: data?.data?.serviceSummary || {},
-                referData: data?.data?.referral || {}
-            })
-        } catch (error) {
-            console.error(error)
+        const response = await fetch(apiUrl, options)
+        const data = await response.json()
+        console.log(data)
+        console.log(data.data.referrals)
+        this.setState({overviewData: data.data.metrics})
+        this.setState({serviceData: data.data.serviceSummary})
+        this.setState({referData: data.data.referral})
+        this.setState({referrals : data.data.referrals})
+    }
+    newFetch = async () => {
+        const {search} = this.state
+        const jwtToken = Cookies.get('jwt_token')
+        const apiUrl = `https://v9fes04dwf.execute-api.eu-north-1.amazonaws.com/api/referrals?search=${search}`
+        const options = {
+            headers: {
+                Authorization: `Bearer ${jwtToken}`,
+            },
+            method: 'GET',
         }
+        const response = await fetch(apiUrl, options)
+        const data = await response.json()
+        console.log(data.data.referrals)
+        this.setState({referrals : data.data.referrals})
+    }
+    seachInList = (event) => {
+        this.setState({search : event.target.value})
+        this.newFetch()
     }
 
     render(){
-        const {overviewData,serviceData,referData} = this.state
+        const {overviewData,serviceData,referData, referrals,search} = this.state
+        console.log(serviceData)
+        console.log(referrals)
+        console.log(search)
         const jwtToken = Cookies.get('jwt_token')
+        console.log(jwtToken)
         if (jwtToken === undefined) {
             return <Redirect to="/login" />
         }
@@ -78,7 +95,45 @@ class Home extends Component {
                         <ReferAndEarn data={referData} />
                     </ul>
                 </div>
+                <div className="all-referrals-container">
+                    <h2 className="referral-heading">All Referrals</h2>
+                    <div className="all-referral-input-container">
+                        <div>
+                            <label htmlFor="search" className="search-label">Search</label>
+                            <input type="text" id="search" className="search-input" onChange={this.seachInList} />
+                        </div>
+                        <div>
+                            <label htmlFor="filter" className="filter-label">Filter</label>
+                            <select id="filter" className="filter-select">
+                                <option value="Newest First">Newest First</option>
+                                <option value="Oldest First">Oldest First</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='all-refral-top-heading'>
+                        <p className="sub-heading">
+                            NAME
+                        </p>
+                        <p className="sub-heading">
+                            SERVICE
+                        </p>
+                        <p className="sub-heading">
+                            DATE
+                        </p>
+                        <p className="sub-heading">
+                            PROFIT
+                        </p>
+                    </div>
+                    <ul className='ul-all-refral'>
+                        {
+                            referrals.map((eachITem) => (
+                                <AllRefrelITems dataNew={eachITem} />
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
+            <Footer />
         </>
         )
     }

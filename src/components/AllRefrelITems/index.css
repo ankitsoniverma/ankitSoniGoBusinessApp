@@ -1,0 +1,13 @@
+.all-refrel-list{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.sub-heading1{
+    
+    width: 25%;
+    font-size: 14px;
+}
