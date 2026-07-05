@@ -11,3 +11,7 @@
     width: 25%;
     font-size: 14px;
 }
+.item-link{
+    text-decoration: none;
+    color: black;
+}

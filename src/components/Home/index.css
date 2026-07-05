@@ -68,7 +68,7 @@
 @media screen and (min-width: 768px){
     .home-container{
         background-color: #F4F6FB;
-        height: 200vh;
+        min-height: 200vh;
         padding: 1px;
         padding-left: 6%;
         padding-right: 6%;

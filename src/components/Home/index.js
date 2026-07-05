@@ -14,7 +14,8 @@ class Home extends Component {
         serviceData : {},
         referData : {},
         referrals : [],
-        search: ""
+        search: "",
+        sort : "desc"
 
     }
     componentDidMount() {
@@ -58,7 +59,25 @@ class Home extends Component {
         this.setState({search : event.target.value})
         this.newFetch()
     }
-
+    changeByDate = async () => {
+        
+        const jwtToken = Cookies.get('jwt_token')
+        const {sort} = this.state 
+        const apiUrl = `https://v9fes04dwf.execute-api.eu-north-1.amazonaws.com/api/referrals?sort=${sort}`
+        const options = {
+            headers: {
+                Authorization: `Bearer ${jwtToken}`,
+            },
+            method: 'GET',
+        }
+        const response = await fetch(apiUrl, options)
+        const data = await response.json()
+        this.setState({referrals: data.data.referrals})
+    }
+    sortBy = (event) => {
+        this.setState({sort : event.target.value})
+        this.changeByDate()
+    }
     render(){
         const {overviewData,serviceData,referData, referrals,search} = this.state
         console.log(serviceData)
@@ -100,13 +119,13 @@ class Home extends Component {
                     <div className="all-referral-input-container">
                         <div>
                             <label htmlFor="search" className="search-label">Search</label>
-                            <input type="text" id="search" className="search-input" onChange={this.seachInList} />
+                            <input type="text" id="search" className="search-input" value={search} onChange={this.seachInList} />
                         </div>
                         <div>
                             <label htmlFor="filter" className="filter-label">Filter</label>
-                            <select id="filter" className="filter-select">
-                                <option value="Newest First">Newest First</option>
-                                <option value="Oldest First">Oldest First</option>
+                            <select id="filter"  className="filter-select" onChange={this.sortBy}>
+                                <option value="asc">Newest First</option>
+                                <option value="desc">Oldest First</option>
                             </select>
                         </div>
                     </div>
