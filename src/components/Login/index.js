@@ -27,7 +27,7 @@ class Login extends Component {
     }
     onSubmitFailure = errorMsg => {
         console.log(errorMsg)
-        this.setState({showSubmitError: true, errorMsg})
+        this.setState({errorMsg: errorMsg})
     }
     onSubmitForm = async (event) => {
         event.preventDefault()
@@ -42,7 +42,7 @@ class Login extends Component {
         const response = await fetch(url, options)
         const data = await response.json()
         console.log(data)
-        console.log(data.data.token)
+        
         if (response.ok === true) {
             this.onSubmitSuccess(data.data.token)
         } else {
@@ -74,7 +74,7 @@ class Login extends Component {
     }
 
     render(){
-        const {Email,password } = this.state
+        const {Email,password,errorMsg } = this.state
         
         console.log(Email,password)
         const jwtToken = Cookies.get('jwt_token')
@@ -94,6 +94,7 @@ class Login extends Component {
                         {this.renderPasswordInputField()}
                     </div>
                     <button type="submit" className="login-button">Sign In</button>
+                    <p className="error-msg">{errorMsg}</p>
                 </form>
             </div>
         )
