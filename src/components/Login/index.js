@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import './index.css';
 import Cookies from 'js-cookie';
+import {withRouter} from 'react-router-dom'
 class Login extends Component {
     state = {
         Email: "",
@@ -16,12 +17,13 @@ class Login extends Component {
         this.setState({password: event.target.value})
     }
     onSubmitSuccess = jwtToken => {
+        const {history} = this.props
         
-
         Cookies.set('jwt_token', jwtToken, {
             expires: 30,
-            
+             path: '/',
         })
+        history.replace('/')
     }
     onSubmitFailure = errorMsg => {
         console.log(errorMsg)
@@ -94,4 +96,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login)
