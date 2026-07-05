@@ -1,0 +1,38 @@
+.refer-card{
+    
+    padding: 20px;
+    width: 46%;
+    
+    margin: 5px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #94b7f0;
+}
+.refer-label{
+    color: #5A7184;
+    font-family: "Roboto", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+}
+.refer-input{
+    background-color: #F4F6FB;
+    border-style: none;
+    outline: none;
+    width: 85%;
+    height: 20px;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 11px;
+}
+.refer-button{
+    background-color: #355aed;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 10px;
+    height: 30px;
+    margin-left: 10px;
+}

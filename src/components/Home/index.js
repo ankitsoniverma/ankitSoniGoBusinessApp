@@ -3,10 +3,12 @@ import './index.css';
 import Cookies from 'js-cookie'
 import OverviewCard from '../OverviewCard';
 import Service from '../Service'
+import ReferAndEarn from '../ReferAndEarn';
 class Home extends Component {
     state ={
         overviewData: [],
-        serviceData : {}
+        serviceData : {},
+        referData : {}
     }
     componentDidMount() {
         this.getDetails()
@@ -24,12 +26,12 @@ class Home extends Component {
         const data = await response.json()
         console.log(data)
         this.setState({overviewData: data.data.metrics})
-        this.setState({serviceData: data.data.serviceSummary
-})
+        this.setState({serviceData: data.data.serviceSummary})
+        this.setState({referData: data.data.referral})
     }
 
     render(){
-        const {overviewData,serviceData} = this.state
+        const {overviewData,serviceData,referData} = this.state
         console.log(serviceData)
         return(
             <div className="home-container">
@@ -47,6 +49,12 @@ class Home extends Component {
                     <h2 className="overview-heading">Service Summary</h2>
                     <ul className="overview-list">
                         <Service data={serviceData} />
+                    </ul>
+                </div>
+                <div className="ReferSection-container">
+                    <h2 className="overview-heading">Refer friends and earn more</h2>
+                    <ul className="ul-referSection">
+                        <ReferAndEarn data={referData} />
                     </ul>
                 </div>
             </div>
