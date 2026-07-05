@@ -62,7 +62,7 @@ class Login extends Component {
     renderPasswordInputField = () => {
         return(
             <>
-                <label htmlfor="password" className="form-label">PASSWORD </label>
+                <label htmlfor="password" className="form-label">PASSWORDd </label>
                 <input type="password" id="password" placeholder="Enter your password" 
                     onChange={this.onChangePassword}
                     value={this.state.password}
