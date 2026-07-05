@@ -5,6 +5,10 @@ class Login extends Component {
         return(
             <div>
                 <h1>hello</h1>
+                <form>
+                    <input type="text" />
+                    <input     type="checkbox" />
+                </form>
             </div>
         )
     }
