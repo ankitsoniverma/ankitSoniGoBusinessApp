@@ -1,27 +1,58 @@
-.ul-li{
-    margin: 0px;
-    padding: 0px;
-    list-style-type: none;
-}
-.main-refrrel-detail{
-    padding: 1px;
-    padding-left: 6%;
-    padding-right: 6%;
-    background-color: #F4F6FB;
-    height: 100vh;
-}
-.margin{
-    margin-top: 100px;
-}
+@media screen and (max-width: 768px){
+    .ul-li{
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+    }
+    .main-refrrel-detail{
+        padding: 1px;
+        padding-left: 6%;
+        padding-right: 6%;
+        background-color: #F4F6FB;
+        height: 100vh;
+    }
+    .margin{
+        margin-top: 100px;
+    }
 
-.link{
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
-    color:#355aed;
+    .link{
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+        color:#355aed;
 
+    }
+    .detailRefHead{
+        font-size: 22px;
+        font-weight: bold;
+    }
 }
-.detailRefHead{
-    font-size: 30px;
-    font-weight: bold;
+@media screen and (min-width: 768px){
+    .ul-li{
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+    }
+    .main-refrrel-detail{
+        padding: 1px;
+        padding-left: 6%;
+        padding-right: 6%;
+        background-color: #F4F6FB;
+        height: 100vh;
+    }
+    .margin{
+        margin-top: 100px;
+    }
+
+    .link{
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: bold;
+        color:#355aed;
+
+    }
+    .detailRefHead{
+        font-size: 30px;
+        font-weight: bold;
+    }
 }
