@@ -1,4 +1,32 @@
-.overview-card{
+
+@media screen and (max-width: 768px){
+    .overview-card{
+    background-color: #F4F6FB;
+    padding: 20px;
+    width: 120px;
+    margin: 5px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #94b7f0;
+    }
+    .overview-card-heading{
+        color: black;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .overview-card-description{
+        color: #5A7184;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 0px;
+    padding-top: 0px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .overview-card{
     background-color: #F4F6FB;
     padding: 20px;
     width: 309px;
@@ -6,18 +34,21 @@
     border-radius: 10px;
     border-width: 2px;
     border-color: #94b7f0;
-}
-.overview-card-heading{
-    color: black;
+    }
+    .overview-card-heading{
+        color: black;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .overview-card-description{
+        color: #5A7184;
     font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 0px;
+    padding-top: 0px;
+    }
 }
-.overview-card-description{
-    color: #5A7184;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 0px;
-  padding-top: 0px;
-}
+
+
