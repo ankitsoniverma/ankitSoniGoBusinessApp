@@ -10,6 +10,7 @@ class Login extends Component {
                     <input     type="checkbox" />
                     <p>i win this july </p>
                     <p>we all know is right</p>
+                    <p>vercel</p>
                 </form>
             </div>
         )
