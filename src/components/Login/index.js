@@ -1,9 +1,9 @@
 import {Component} from 'react';
-
+import './index.css';
 class Login extends Component {
     render(){
         return(
-            <div>
+            <div className="login-main-container">
                 <h1>hello</h1>
                 <form>
                     <input type="text" />
