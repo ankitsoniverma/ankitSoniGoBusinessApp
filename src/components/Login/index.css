@@ -25,3 +25,42 @@
     font-family: "Roboto", sans-serif;
     font-weight: 700;
 }
+.form-sub-heading{
+    color: #5A7184;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.login-button{
+    background-color: #355aed;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.form-label{
+    
+    font-size: 14px;
+    font-weight: 600;
+}
+.form-input{
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
