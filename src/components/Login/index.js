@@ -16,7 +16,7 @@ class Login extends Component {
         this.setState({password: event.target.value})
     }
     onSubmitSuccess = jwtToken => {
-        const {history} = this.props
+        
 
         Cookies.set('jwt_token', jwtToken, {
             expires: 30,
