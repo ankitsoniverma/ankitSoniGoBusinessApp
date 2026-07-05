@@ -14,7 +14,7 @@ const Header = () => {
                 <h1>
                     <Link to="/" className='header-heading'>Go Business</Link>
                 </h1>
-                <div>
+                <div className='button-con'>
                     <button type="button" className="tyr-for-free">Try for free</button>
                     <button type="button" className="logout" onClick={onLogout}>Log Out</button>
 
